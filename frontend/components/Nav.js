@@ -128,8 +128,6 @@ const SocialNavStyles = styled.nav`
 
   .menu-icon {
     color: var(--white);
-    height: 25px;
-    width: auto;
   }
 `;
 
@@ -145,14 +143,14 @@ export default function Nav() {
           target="_blank"
           rel="noreferrer noopener"
         >
-          <FacebookIcon className="menu-icon" />
+          <FacebookIcon className="menu-icon" style={{ fontSize: '25px' }} />
         </a>
         <a
           href="https://www.instagram.com/epworkshop/"
           target="_blank"
           rel="noreferrer noopener"
         >
-          <InstagramIcon className="menu-icon" />
+          <InstagramIcon className="menu-icon" style={{ fontSize: '25px' }} />
         </a>
       </SocialNavStyles>
       <NavStyles>
@@ -173,7 +171,10 @@ export default function Nav() {
             </NavDropDownStyles>
 
             <button type="button" onClick={openCart}>
-              <ShoppingCartIcon className="menu-icon" />
+              <ShoppingCartIcon
+                className="menu-icon"
+                style={{ fontSize: '25px' }}
+              />
             </button>
           </>
         )}

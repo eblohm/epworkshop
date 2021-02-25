@@ -57,12 +57,6 @@ const FooterStyles = styled.footer`
 
         a {
           color: var(--white);
-          font-size: 2rem;
-
-          svg {
-            height: 30px;
-            width: auto;
-          }
         }
       }
     }
@@ -92,14 +86,14 @@ function Footer() {
               target="_blank"
               rel="noreferrer noopener"
             >
-              <FacebookIcon />
+              <FacebookIcon style={{ fontSize: '30px' }} />
             </a>
             <a
               href="https://www.instagram.com/epworkshop/"
               target="_blank"
               rel="noreferrer noopener"
             >
-              <InstagramIcon />
+              <InstagramIcon style={{ fontSize: '30px' }} />
             </a>
             {/* <a
             href="https://www.youtube.com/channel/UCUf4XXRAlLZ0E1nFJu0VTHg"
