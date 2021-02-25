@@ -161,7 +161,10 @@ export default function Nav() {
           <>
             <NavDropDownStyles>
               <li>
-                <PersonIcon className="menu-icon" />
+                <PersonIcon
+                  style={{ fontSize: '25px' }}
+                  className="menu-icon"
+                />
                 <ul>
                   <Link href="/account">Account</Link>
                   <Link href="/orders">Orders</Link>
