@@ -85,9 +85,24 @@ export default function Cart() {
         {me.cart.map((cartItem) => (
           <CartItem key={cartItem.id} cartItem={cartItem} />
         ))}
+        {me.cart.length === 0 ? (
+          ''
+        ) : (
+          <CartItemStyles>
+            <div />
+            <div>
+              <h3>Shipping</h3>
+              <p>$20</p>
+            </div>
+          </CartItemStyles>
+        )}
       </ul>
       <footer>
-        <p>Total - {formatMoney(calcTotalPrice(me.cart))}</p>
+        {me.cart.length === 0 ? (
+          <p>Total - $0</p>
+        ) : (
+          <p>Total - {formatMoney(calcTotalPrice(me.cart) + 2000)}</p>
+        )}
         <Checkout />
       </footer>
     </CartStyles>

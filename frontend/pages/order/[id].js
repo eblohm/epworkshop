@@ -60,6 +60,10 @@ export default function SingleOrderPage({ query }) {
           <span>{order.charge}</span>
         </p>
         <p>
+          <span>Shipping:</span>
+          <span>$20</span>
+        </p>
+        <p>
           <span>Order Total:</span>
           <span>{formatMoney(order.total)}</span>
         </p>

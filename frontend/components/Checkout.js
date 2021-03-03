@@ -164,10 +164,6 @@ function CheckoutForm() {
     <CheckoutFormStyles onSubmit={handleSubmit}>
       {error && <p style={{ fontSize: 12 }}>{error.message}</p>}
       {graphQLError && <p style={{ fontSize: 12 }}>{graphQLError.message}</p>}
-      <p style={{ fontSize: 12 }}>
-        SITE IS CURRENTLY IN TEST MODE, CREDIT CARDS ARE NOT ACCEPTED AND ORDERS
-        WILL NOT BE PROCESSED
-      </p>
       <CardElement />
       <CheckoutButton disabled={loading} aria-busy={loading}>
         Check{loading ? 'ing' : ''} Out Now

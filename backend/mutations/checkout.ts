@@ -46,7 +46,7 @@ export default async function checkout(root: any, { token }: Arguments, context:
   const cartItems = user.cart.filter((cartItem: CartItemCreateInput) => cartItem.product);
   const amount = cartItems.reduce(function(tally: number, cartItem: CartItemCreateInput): number {
     return tally + cartItem.quantity * cartItem.product.price;
-  }, 0);
+  }, 2000);
   // create the charge with stripe library
   const charge = await stripeConfig.paymentIntents.create({
     amount,
