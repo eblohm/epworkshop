@@ -40,6 +40,7 @@ export const SINGLE_ITEM_QUERY = gql`
       price
       description
       id
+      shippingCost
       photo {
         image {
           publicUrlTransformed
@@ -78,6 +79,9 @@ export default function SingleProduct({ id }) {
             <h2>
               {product.name} - {formatMoney(product.price)}
             </h2>
+            <p>
+              <em>Shipping Cost: {formatMoney(product.shippingCost)}</em>
+            </p>
             <p>{product.description}</p>
             {user ? (
               <AddToCart id={product.id} />

@@ -38,6 +38,7 @@ export const Product = list({
         createView: { fieldMode: 'hidden' },
       },
     }),
+    shippingCost: integer(),
     productCategory: select({
       options: [
         { label: 'Woodworking', value: 'WOODWORKING' },

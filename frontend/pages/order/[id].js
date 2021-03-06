@@ -12,6 +12,7 @@ const SINGLE_ORDER_QUERY = gql`
       id
       charge
       total
+      shippingCost
       user {
         id
       }
@@ -21,6 +22,7 @@ const SINGLE_ORDER_QUERY = gql`
         description
         price
         quantity
+        shippingPrice
         photo {
           image {
             publicUrlTransformed
@@ -61,7 +63,7 @@ export default function SingleOrderPage({ query }) {
         </p>
         <p>
           <span>Shipping:</span>
-          <span>$20</span>
+          <span>{formatMoney(order.shippingCost)}</span>
         </p>
         <p>
           <span>Order Total:</span>
@@ -82,6 +84,7 @@ export default function SingleOrderPage({ query }) {
                 <h2>{item.name}</h2>
                 <p>Qty: {item.quantity}</p>
                 <p>Each: {formatMoney(item.price)}</p>
+                <p>Shipping Per: {formatMoney(item.shippingPrice)}</p>
                 <p>Sub Total: {formatMoney(item.price * item.quantity)}</p>
                 <p>{item.description}</p>
               </div>

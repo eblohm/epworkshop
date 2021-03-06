@@ -45,6 +45,7 @@ const CREATE_ORDER_MUTATION = gql`
       id
       charge
       total
+      shippingCost
       items {
         id
         name

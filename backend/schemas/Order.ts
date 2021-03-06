@@ -23,6 +23,7 @@ export const Order = list({
         return `${formatMoney(total)}`;
       },
     }),
+    shippingCost: integer(),
     total: integer(),
     items: relationship({ ref: 'OrderItem.order', many: true }),
     user: relationship({ ref: 'User.orders' }),

@@ -31,6 +31,7 @@ export default async function checkout(root: any, { token }: Arguments, context:
           price
           description
           id
+          shippingCost
           photo {
             id
             image {
@@ -45,8 +46,11 @@ export default async function checkout(root: any, { token }: Arguments, context:
   // calculate total price for the order
   const cartItems = user.cart.filter((cartItem: CartItemCreateInput) => cartItem.product);
   const amount = cartItems.reduce(function(tally: number, cartItem: CartItemCreateInput): number {
-    return tally + cartItem.quantity * cartItem.product.price;
-  }, 2000);
+    return tally + cartItem.quantity * cartItem.product.price + cartItem.quantity * cartItem.product.shippingCost;
+  }, 0);
+  const shipping = cartItems.reduce(function(tally: number, cartItem: CartItemCreateInput): number {
+    return tally + cartItem.quantity * cartItem.product.shippingCost;
+  }, 0);
   // create the charge with stripe library
   const charge = await stripeConfig.paymentIntents.create({
     amount,
@@ -64,6 +68,7 @@ export default async function checkout(root: any, { token }: Arguments, context:
       description: cartItem.product.description,
       price: cartItem.product.price,
       quantity: cartItem.quantity,
+      shippingPrice: cartItem.product.shippingCost,
       photo: { connect: { id: cartItem.product.photo.id } },
     };
     return orderItem;
@@ -74,6 +79,7 @@ export default async function checkout(root: any, { token }: Arguments, context:
     data: {
       total: charge.amount,
       charge: charge.id,
+      shippingCost: shipping,
       items: { create: orderItems },
       user: { connect: { id: userId } },
     },

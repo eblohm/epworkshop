@@ -27,6 +27,7 @@ export const OrderItem = list({
         inlineEdit: { fields: ['image', 'altText'] },
       },
     }),
+    shippingPrice: integer(),
     price: integer(),
     quantity: integer(),
     order: relationship({ ref: 'Order.items' }),

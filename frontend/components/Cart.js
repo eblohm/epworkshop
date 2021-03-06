@@ -56,9 +56,15 @@ function CartItem({ cartItem }) {
       <div>
         <h3>{product.name}</h3>
         <p>
-          {formatMoney(product.price * cartItem.quantity)} -{' '}
+          Price: {formatMoney(product.price * cartItem.quantity)} -{' '}
           <em>
             {cartItem.quantity} &times; {formatMoney(product.price)} each
+          </em>
+        </p>
+        <p>
+          Shipping: {formatMoney(product.shippingCost * cartItem.quantity)} -{' '}
+          <em>
+            {cartItem.quantity} &times; {formatMoney(product.shippingCost)} each
           </em>
         </p>
       </div>
@@ -85,23 +91,12 @@ export default function Cart() {
         {me.cart.map((cartItem) => (
           <CartItem key={cartItem.id} cartItem={cartItem} />
         ))}
-        {me.cart.length === 0 ? (
-          ''
-        ) : (
-          <CartItemStyles>
-            <div />
-            <div>
-              <h3>Shipping</h3>
-              <p>$20</p>
-            </div>
-          </CartItemStyles>
-        )}
       </ul>
       <footer>
         {me.cart.length === 0 ? (
           <p>Total - $0</p>
         ) : (
-          <p>Total - {formatMoney(calcTotalPrice(me.cart) + 2000)}</p>
+          <p>Total - {formatMoney(calcTotalPrice(me.cart))}</p>
         )}
         <Checkout />
       </footer>
