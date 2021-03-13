@@ -6,7 +6,7 @@ import Nav from './Nav';
 const Logo = styled.div`
   margin-bottom: 1.6rem;
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1300px) {
     margin-bottom: 0;
     position: absolute;
     left: 50%;
@@ -20,7 +20,7 @@ const Logo = styled.div`
     height: auto;
     width: 250px;
 
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: 1300px) {
       width: 350px;
     }
   }
@@ -37,7 +37,7 @@ const HeaderStyles = styled.header`
   width: 100%;
   z-index: 99999;
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1300px) {
     height: 190px;
   }
 `;

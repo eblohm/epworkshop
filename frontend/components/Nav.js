@@ -9,7 +9,7 @@ import { useUser } from './User';
 import { useCart } from '../lib/cartState';
 
 const NavStyles = styled.nav`
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1300px) {
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -23,13 +23,18 @@ const NavStyles = styled.nav`
 
   a {
     color: var(--white);
+    font-size: 1.6rem;
     text-decoration: none;
     text-transform: uppercase;
 
     &:not(:last-child) {
-      margin-right: 2rem;
+      margin-right: 1.2rem;
 
-      @media screen and (min-width: 400px) {
+      @media screen and (min-width: 370px) {
+        margin-right: 2rem;
+      }
+
+      @media screen and (min-width: 450px) {
         margin-right: 3rem;
       }
 
@@ -51,16 +56,24 @@ const NavStyles = styled.nav`
 
   .menu-icon {
     color: var(--white);
-    height: 25px;
+    height: 20px;
     width: auto;
+
+    @media screen and (min-width: 370px) {
+      height: 25px;
+    }
   }
 `;
 
 const NavDropDownStyles = styled.ul`
   display: inline-block;
-  margin-right: 2rem;
+  margin-right: 1.2rem;
 
-  @media screen and (min-width: 400px) {
+  @media screen and (min-width: 370px) {
+    margin-right: 2rem;
+  }
+
+  @media screen and (min-width: 450px) {
     margin-right: 3rem;
   }
 
@@ -116,7 +129,7 @@ const SocialNavStyles = styled.nav`
   margin-bottom: 2rem;
   text-align: right;
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1300px) {
     display: block;
   }
 
@@ -154,8 +167,8 @@ export default function Nav() {
         </a>
       </SocialNavStyles>
       <NavStyles>
-        <Link href="/">Home</Link>
         <Link href="/products">Shop</Link>
+        <Link href="/projects">Projects</Link>
         <Link href="/contact">Contact</Link>
         {user && (
           <>

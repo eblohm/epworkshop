@@ -10,6 +10,8 @@ import { CartItem } from './schemas/CartItem';
 import { Order } from './schemas/Order';
 import { OrderItem } from './schemas/OrderItem';
 import { Role } from './schemas/Role';
+import { Project } from './schemas/Project';
+import { ProjectImage } from './schemas/ProjectImage';
 import { sendPasswordResetEmail } from './lib/mail';
 import { extendGraphqlSchema } from './mutations';
 import { permissionsList } from './schemas/fields';
@@ -49,11 +51,6 @@ export default withAuth(config({
   db: {
     adapter: 'mongoose',
     url: databaseURL,
-    // async onConnect({ keystone }) {
-    //   if (process.argv.includes('--seed-data')) {
-    //     await insertSeedData(keystone);
-    //   }
-    // },
   },
   lists: createSchema({
     User,
@@ -63,6 +60,8 @@ export default withAuth(config({
     Order,
     OrderItem,
     Role,
+    Project,
+    ProjectImage
   }),
   extendGraphqlSchema,
   ui: {
