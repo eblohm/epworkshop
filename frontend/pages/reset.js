@@ -1,20 +1,28 @@
+import InternalBanner from '../components/InternalBanner';
 import RequestReset from '../components/RequestReset';
+import Container from '../components/Container';
 import Reset from '../components/Reset';
 
 export default function ResetPage({ query }) {
   if (!query?.token) {
     return (
-      <div>
-        <p>Sorry, you must supply a reset token.</p>
-        <RequestReset />
-      </div>
+      <>
+        <InternalBanner />
+        <Container>
+          <p>Sorry, you must supply a reset token.</p>
+          <RequestReset />
+        </Container>
+      </>
     );
   }
 
   return (
-    <div>
-      <p>Reset your password </p>
-      <Reset token={query.token} />
-    </div>
+    <>
+      <InternalBanner />
+      <Container>
+        <p>Reset your password </p>
+        <Reset token={query.token} />
+      </Container>
+    </>
   );
 }

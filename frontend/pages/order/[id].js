@@ -5,6 +5,7 @@ import ErrorMessage from '../../components/ErrorMessage';
 import OrderStyles from '../../components/styles/OrderStyles';
 import formatMoney from '../../lib/formatMoney';
 import InternalBanner from '../../components/InternalBanner';
+import Container from '../../components/Container';
 
 const SINGLE_ORDER_QUERY = gql`
   query SINGLE_ORDER_QUERY($id: ID!) {
@@ -40,9 +41,19 @@ export default function SingleOrderPage({ query }) {
     },
   });
 
-  if (loading) return <p>Loading...</p>;
+  if (loading)
+    return (
+      <Container>
+        <p>Loading...</p>
+      </Container>
+    );
 
-  if (error) return <ErrorMessage error={error} />;
+  if (error)
+    return (
+      <Container>
+        <ErrorMessage error={error} />
+      </Container>
+    );
 
   const { order } = data;
 

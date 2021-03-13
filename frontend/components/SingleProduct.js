@@ -58,8 +58,18 @@ export default function SingleProduct({ id }) {
     },
   });
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <DisplayError error={error} />;
+  if (loading)
+    return (
+      <Container>
+        <p>Loading...</p>
+      </Container>
+    );
+  if (error)
+    return (
+      <Container>
+        <DisplayError error={error} />
+      </Container>
+    );
 
   const { Product: product } = data;
 
