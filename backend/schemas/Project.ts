@@ -27,5 +27,6 @@ export const Project = list({
       },
       many: true,
     }),
+    dateAdded: text({ defaultValue: Date.now().toString(), label: 'Timestamp this project was added, used for sorting. Do not enter anything in this field.' })
   },
 });

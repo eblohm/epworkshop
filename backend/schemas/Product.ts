@@ -57,5 +57,6 @@ export const Product = list({
         connect: { id: context.session.itemId }
       }),
     }),
+    dateAdded: text({ defaultValue: Date.now().toString(), label: 'Timestamp this product was added, used for sorting. Do not enter anything in this field.' })
   },
 });

@@ -22,7 +22,7 @@ export const ProductImage = list({
     // hide backend UI from regular users
     hideCreate: (args) => !permissions.canManageUsers(args),
     hideDelete: (args) => !permissions.canManageUsers(args),
-    isHidden: (args) => !permissions.canManageRoles(args),
+    isHidden: true,
     listView: {
       initialColumns: ['image', 'altText', 'product'],
     },

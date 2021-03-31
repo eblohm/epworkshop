@@ -7,7 +7,7 @@ import ProjectCard from './ProjectCard';
 
 export const ALL_PROJECTS_QUERY = gql`
   query ALL_PROJECTS_QUERY($skip: Int = 0, $first: Int) {
-    allProjects(first: $first, skip: $skip) {
+    allProjects(first: $first, skip: $skip, sortBy: dateAdded_DESC) {
       id
       name
       description
